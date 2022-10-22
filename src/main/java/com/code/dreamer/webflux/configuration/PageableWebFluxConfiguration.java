@@ -1,5 +1,7 @@
 package com.code.dreamer.webflux.configuration;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.ReactivePageableHandlerMethodArgumentResolver;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
@@ -13,4 +15,8 @@ public class PageableWebFluxConfiguration implements WebFluxConfigurer {
         configurer.addCustomResolver(new ReactivePageableHandlerMethodArgumentResolver());
     }
 
+    @Bean
+    public ModelMapper mapper() {
+        return new ModelMapper();
+    }
 }
